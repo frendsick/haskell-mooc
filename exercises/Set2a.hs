@@ -13,6 +13,7 @@
 module Set2a where
 
 -- Some imports you'll need. Don't add other imports :)
+
 import Data.List
 import Mooc.Todo
 
@@ -181,6 +182,5 @@ eitherDiv divident divisor
 --   addEithers (Left "boom") (Left "fail") ==> Left "boom"
 
 addEithers :: Either String Int -> Either String Int -> Either String Int
-addEithers (Left fst) _ = Left fst
-addEithers _ (Left snd) = Left snd
-addEithers (Right fst) (Right snd) = Right (fst + snd)
+-- Penetrate the Either Applicatives with (+) using sequential application <*>
+addEithers a b = (+) <$> a <*> b
