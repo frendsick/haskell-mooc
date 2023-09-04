@@ -143,7 +143,11 @@ greet firstName (Just lastName) = "Hello, " ++ firstName ++ " " ++ lastName ++ "
 --   safeIndex ["a","b","c"] (-1)  ==> Nothing
 
 safeIndex :: [a] -> Int -> Maybe a
-safeIndex xs i = todo
+safeIndex [] _ = Nothing
+safeIndex (x : _) 0 = Just x
+safeIndex (_ : xs) i
+  | i < 0 = Nothing
+  | otherwise = safeIndex xs (i - 1)
 
 ------------------------------------------------------------------------------
 -- Ex 10: another variant of safe division. This time you should use
