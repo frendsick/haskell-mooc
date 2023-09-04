@@ -80,7 +80,10 @@ substring i j s = drop i (take j s)
 --   isPalindrome "AB"       ==>  False
 
 isPalindrome :: String -> Bool
-isPalindrome str = todo
+isPalindrome [] = True
+isPalindrome [_] = True
+isPalindrome (x : xs) =
+  x == last xs && isPalindrome (init xs)
 
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function palindromify that chops a character
