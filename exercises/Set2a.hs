@@ -157,8 +157,14 @@ safeIndex (_ : xs) i
 --   eitherDiv 4 2   ==> Right 2
 --   eitherDiv 4 0   ==> Left "4/0"
 
+-- Display division as "a/b"
+divString :: Integer -> Integer -> String
+divString a b = show a ++ "/" ++ show b
+
 eitherDiv :: Integer -> Integer -> Either String Integer
-eitherDiv x y = todo
+eitherDiv divident divisor
+  | divisor == 0 = Left (divString divident divisor)
+  | otherwise = Right (divident `div` divisor)
 
 ------------------------------------------------------------------------------
 -- Ex 11: implement the function addEithers, which combines two values of type
