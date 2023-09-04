@@ -122,7 +122,11 @@ sumTo n
 -- Use recursion.
 
 power :: Integer -> Integer -> Integer
-power = todo
+power n k
+  | k == 0 = 1
+  | k > 0 = n * power n (k - 1)
+  -- Negative exponent would require Double as the return type
+  | otherwise = error "Exponent cannot be negative"
 
 ------------------------------------------------------------------------------
 -- Ex 11: ilog3 n should be the number of times you can divide given
