@@ -181,4 +181,6 @@ eitherDiv divident divisor
 --   addEithers (Left "boom") (Left "fail") ==> Left "boom"
 
 addEithers :: Either String Int -> Either String Int -> Either String Int
-addEithers a b = todo
+addEithers (Left fst) _ = Left fst
+addEithers _ (Left snd) = Left snd
+addEithers (Right fst) (Right snd) = Right (fst + snd)
