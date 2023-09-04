@@ -90,7 +90,10 @@ checkPassword _ = "ACCESS DENIED!"
 -- in grams, and returns the cost in credits.
 
 postagePrice :: Int -> Int
-postagePrice = todo
+postagePrice weightGrams
+  | weightGrams > 5000 = 6000
+  | weightGrams > 500 = 300 + weightGrams
+  | otherwise = 250
 
 ------------------------------------------------------------------------------
 -- Ex 8: define a function isZero that returns True if it is given an
