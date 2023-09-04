@@ -76,10 +76,9 @@ eeny x
 -- "mellon".
 
 checkPassword :: String -> String
-checkPassword password =
-  if password == "swordfish"
-    then "You're in."
-    else "ACCESS DENIED!"
+checkPassword "swordfish" = "You're in."
+checkPassword "mellon" = "You're in."
+checkPassword _ = "ACCESS DENIED!"
 
 ------------------------------------------------------------------------------
 -- Ex 7: A postal service prices packages the following way.
