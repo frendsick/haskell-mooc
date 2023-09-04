@@ -49,7 +49,9 @@ takeFinal n xs
 --   updateAt 2 0 [4,5,6,7] ==>  [4,5,0,7]
 
 updateAt :: Int -> a -> [a] -> [a]
-updateAt i x xs = todo
+updateAt n newValue (x : xs)
+  | n == 0 = newValue : xs
+  | otherwise = x : updateAt (n - 1) newValue xs
 
 ------------------------------------------------------------------------------
 -- Ex 4: substring i j s should return the substring of s starting at
