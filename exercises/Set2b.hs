@@ -142,7 +142,12 @@ smallestDivisor n = head (filter (\x -> n `mod` x == 0) [2 .. n])
 -- Ps. 0 and 1 are not prime numbers
 
 isPrime :: Integer -> Bool
-isPrime = todo
+isPrime p
+  | p < 2 = False
+  | otherwise = sieve
+  where
+    sieve = all (\x -> p `mod` x /= 0) (takeWhile (\x -> x * x <= p) primes)
+    primes = 2 : filter isPrime [3, 5 ..]
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function biggestPrimeAtMost that returns the
