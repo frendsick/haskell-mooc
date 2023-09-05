@@ -1,9 +1,8 @@
 module Set2b where
 
-import Mooc.Todo
-
 -- Some imports you'll need. Don't add other imports :)
 import Data.List
+import Mooc.Todo
 
 ------------------------------------------------------------------------------
 -- Ex 1: compute binomial coefficients using recursion. Binomial
@@ -16,7 +15,11 @@ import Data.List
 -- Hint! pattern matching is your friend.
 
 binomial :: Integer -> Integer -> Integer
-binomial = todo
+binomial n k =
+  case (n, k) of
+    (n, 0) -> 1
+    (0, k) | k > 0 -> 0
+    _ -> binomial (n - 1) k + binomial (n - 1) (k - 1)
 
 ------------------------------------------------------------------------------
 -- Ex 2: implement the odd factorial function. Odd factorial is like
@@ -34,10 +37,15 @@ oddFactorial = todo
 -- common divisor:
 --
 -- Given two numbers, a and b,
+
 -- * if one is zero, return the other number
+
 -- * if not, subtract the smaller number from the larger one
+
 -- * replace the larger number with this new number
+
 -- * repeat
+
 --
 -- For example,
 --   myGcd 9 12 ==> 3
@@ -56,6 +64,7 @@ oddFactorial = todo
 --   0      3
 --
 -- Background reading:
+
 -- * https://en.wikipedia.org/wiki/Euclidean_algorithm
 
 myGcd :: Integer -> Integer -> Integer
@@ -71,7 +80,9 @@ myGcd = todo
 --   leftpad "xxxxx" 3 ==> "xxxxx"
 --
 -- Tips:
+
 -- * you can combine strings with the ++ operator.
+
 -- * you can compute the length of a string with the length function
 
 leftpad :: String -> Int -> String
@@ -86,8 +97,11 @@ leftpad = todo
 --   countdown 4 ==> "Ready! 4... 3... 2... 1... Liftoff!"
 --
 -- Hints:
+
 -- * you can combine strings with the ++ operator
+
 -- * you can use the show function to convert a number into a string
+
 -- * you'll probably need a recursive helper function
 
 countdown :: Integer -> String
