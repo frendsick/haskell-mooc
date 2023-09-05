@@ -74,11 +74,13 @@ mapMaybe2 f x y = f <$> x <*> y
 -- Note! Do not change the definition of palindromeHalfs
 
 palindromeHalfs :: [String] -> [String]
-palindromeHalfs xs = map firstHalf (filter palindrome xs)
+palindromeHalfs xs = map firstHalf $ filter palindrome xs
 
-firstHalf = todo
+firstHalf :: [a] -> [a]
+firstHalf xs = take (ceiling $ fromIntegral (length xs) / 2) xs
 
-palindrome = todo
+palindrome :: String -> Bool
+palindrome xs = xs == reverse xs
 
 ------------------------------------------------------------------------------
 -- Ex 5: Implement a function capitalize that takes in a string and
