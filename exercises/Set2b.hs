@@ -89,7 +89,7 @@ myGcd fst snd = myGcd snd (fst `mod` snd)
 -- * you can compute the length of a string with the length function
 
 leftpad :: String -> Int -> String
-leftpad = todo
+leftpad str len = replicate (len - length str) ' ' ++ str
 
 ------------------------------------------------------------------------------
 -- Ex 5: let's make a countdown for a rocket! Given a number, you
