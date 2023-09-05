@@ -133,7 +133,7 @@ countdown count =
 -- Hint: remember the mod function!
 
 smallestDivisor :: Integer -> Integer
-smallestDivisor = todo
+smallestDivisor n = head (filter (\x -> n `mod` x == 0) [2 .. n])
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
