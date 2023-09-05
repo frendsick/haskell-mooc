@@ -108,7 +108,14 @@ leftpad str len = replicate (len - length str) ' ' ++ str
 -- * you'll probably need a recursive helper function
 
 countdown :: Integer -> String
-countdown = todo
+countdown count =
+  "Ready! "
+    ++ showCounter count
+    ++ "Liftoff!"
+  where
+    showCounter count
+      | count <= 0 = ""
+      | otherwise = show count ++ "... " ++ showCounter (count - 1)
 
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
