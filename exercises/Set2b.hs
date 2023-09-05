@@ -159,4 +159,4 @@ isPrime p
 --   biggestPrimeAtMost 10 ==> 7
 
 biggestPrimeAtMost :: Integer -> Integer
-biggestPrimeAtMost = todo
+biggestPrimeAtMost n = head $ filter isPrime [n, n - 1 .. 2]
