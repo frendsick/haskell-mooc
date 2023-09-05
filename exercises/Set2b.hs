@@ -70,7 +70,8 @@ oddFactorial x = product [n, n - 2 .. 1]
 -- * https://en.wikipedia.org/wiki/Euclidean_algorithm
 
 myGcd :: Integer -> Integer -> Integer
-myGcd = todo
+myGcd fst 0 = abs fst
+myGcd fst snd = myGcd snd (fst `mod` snd)
 
 ------------------------------------------------------------------------------
 -- Ex 4: Implement the function leftpad which adds space characters
