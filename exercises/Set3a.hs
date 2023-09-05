@@ -98,7 +98,9 @@ palindrome xs = xs == reverse xs
 --   capitalize "goodbye cruel world" ==> "Goodbye Cruel World"
 
 capitalize :: String -> String
-capitalize = todo
+capitalize str = unwords $ map capitalizeFirst $ words str
+  where
+    capitalizeFirst (head : tail) = toUpper head : tail
 
 ------------------------------------------------------------------------------
 -- Ex 6: powers k max should return all the powers of k that are less
